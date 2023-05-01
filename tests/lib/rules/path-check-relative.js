@@ -4,6 +4,8 @@
  */
 "use strict";
 
+const { parserOptions } = require("../config/options");
+
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
@@ -17,10 +19,7 @@ const rule = require("../../../lib/rules/path-check-relative"),
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
-  }
+  parserOptions
 });
 ruleTester.run("path-check-relative", rule, {
   valid: [
@@ -43,8 +42,8 @@ ruleTester.run("path-check-relative", rule, {
       errors: [{ message: "According to FSD you should use related imports inside one slice" }],
     },
     {
-      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Profile",
-      code: "import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';",
+      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/features/ArticleCommentList/ui/ArticleCommentList/ArticleCommentList.tsx",
+      code: "import { articleDetailsCommentsReducer, getArticleComments } from '@/features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';",
       errors: [{ message: "According to FSD you should use related imports inside one slice" }],
       options: [
         {
