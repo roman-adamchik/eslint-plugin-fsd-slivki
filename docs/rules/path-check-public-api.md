@@ -1,16 +1,18 @@
-# Check for using only public API paths for importing modules (`path-check-public-api`)
+# Check for using only public API paths for importing modules (`fsd-slivki/path-check-public-api`)
 
-Please describe the origin of the rule here.
+<!-- end auto-generated rule header -->
+
+This rule checks if you use public API (index.ts) or testing public api (testing.ts) for importing modules
 
 ## Rule Details
 
-This rule aims to...
+According to FSD you should use only public API to import modules from different slices. You can only import modules from index.ts file or from testing.ts file for testing purposes (testing public API).
 
 Examples of **incorrect** code for this rule:
 
 ```js
 
-// fill me in
+import { getSomeData } from 'entities/yourEntity/model/selectors/getSomeData/getSomeData';
 
 ```
 
@@ -18,18 +20,29 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+import { getSomeData } from 'entities/yourEntity';
 
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+```js
+
+"fsd-slivki/path-check-public-api": [
+  "error",
+  {
+    alias: '@', // if you use alias for your root src folder, you can pass it here as an option
+    testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] // Array of testing files patterns
+  }
+],
+
+```
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
+Only if you don't use Feature Sliced Design architecture patterns.
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+Read about FSD here
+https://feature-sliced.design/

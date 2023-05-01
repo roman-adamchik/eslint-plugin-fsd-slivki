@@ -39,12 +39,12 @@ ruleTester.run("path-check-relative", rule, {
     {
       filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Profile",
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
-      errors: [{ message: "According to FSD you should use related imports inside one slice" }],
+      errors: [{ messageId: "errorMessage" }],
     },
     {
       filename: "/Users/romanadamchik/Documents/Projects/project_007/src/features/ArticleCommentList/ui/ArticleCommentList/ArticleCommentList.tsx",
       code: "import { articleDetailsCommentsReducer, getArticleComments } from '@/features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';",
-      errors: [{ message: "According to FSD you should use related imports inside one slice" }],
+      errors: [{ messageId: "errorMessage" }],
       options: [
         {
           alias: '@'

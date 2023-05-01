@@ -42,7 +42,12 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
+
+| Name                                                         | Description                                                 |
+| :----------------------------------------------------------- | :---------------------------------------------------------- |
+| [path-check-public-api](docs/rules/path-check-public-api.md) | Check for using only public API paths for importing modules |
+| [path-check-relative](docs/rules/path-check-relative.md)     | Check import paths to be relative inside one slice          |
+
 <!-- end auto-generated rules list -->
 
 

@@ -44,19 +44,63 @@ ruleTester.run("path-check-public-api", rule, {
         }
       ]
     },
+    {
+      filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/file.test.ts',
+      code: "import { getProfileForm } from '@/entities/Profile/testing'",
+      errors: [],
+      options: [
+        {
+          alias: '@',
+          testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+        }
+      ]
+    },
+    {
+      filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/StoreDecorator.tsx',
+      code: "import { getProfileForm } from '@/entities/Profile/testing'",
+      errors: [],
+      options: [
+        {
+          alias: '@',
+          testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+        }
+      ]
+    },
   ],
 
   invalid: [
     {
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
-      errors: [{message: "According to FSD you should use only public API for importing modules"}],
+      errors: [{messageId: "errorMessage"}],
     },
     {
       code: "import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';",
-      errors: [{message: "According to FSD you should use only public API for importing modules"}],
+      errors: [{messageId: "errorMessage"}],
       options: [
         {
           alias: '@'
+        }
+      ]
+    },
+    {
+      filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/StoreDecorator.tsx',
+      code: "import { getProfileForm } from '@/entities/Profile/ui/Component/test.tsx'",
+      errors: [{messageId: "errorMessage"}],
+      options: [
+        {
+          alias: '@',
+          testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+        }
+      ]
+    },
+    {
+      filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/SomeComponent.tsx',
+      code: "import { getProfileForm } from '@/entities/Profile/testing'",
+      errors: [{messageId: "errorTestingMessage"}],
+      options: [
+        {
+          alias: '@',
+          testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
         }
       ]
     },
