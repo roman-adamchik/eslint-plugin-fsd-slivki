@@ -41,6 +41,8 @@ Then configure the rules you want to use under the rules section.
 
 ## Rules
 
+Plugin is in development. Only 2 rules are working currently. No auto-fix available yet.
+
 <!-- begin auto-generated rules list -->
 
 | Name                                                         | Description                                                 |
