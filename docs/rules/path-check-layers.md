@@ -37,7 +37,7 @@ import { button } from 'shared/ui/Button/Button';
 
 ```js
 
-"fsd-slivki/path-check-check-layers": [
+"fsd-slivki/path-check-layers": [
   "error",
   {
     alias: '@', // if you use alias for your root src folder, you can pass it here as an option
