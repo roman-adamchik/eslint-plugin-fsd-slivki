@@ -4,6 +4,7 @@
  */
 "use strict";
 
+const { ERROR_MESSAGE, ERROR_TESTING_MESSAGE } = require("../../../lib/consts/consts");
 const { parserOptions } = require("../config/options");
 
 //------------------------------------------------------------------------------
@@ -71,38 +72,42 @@ ruleTester.run("path-check-public-api", rule, {
   invalid: [
     {
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
-      errors: [{messageId: "errorMessage"}],
+      errors: [{messageId: ERROR_MESSAGE}],
+      output: "import { getProfileForm } from 'entities/Profile';"
     },
     {
       code: "import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';",
-      errors: [{messageId: "errorMessage"}],
+      errors: [{messageId: ERROR_MESSAGE}],
       options: [
         {
           alias: '@'
         }
-      ]
+      ],
+      output: "import { getProfileForm } from '@/entities/Profile';"
     },
     {
       filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/StoreDecorator.tsx',
       code: "import { getProfileForm } from '@/entities/Profile/ui/Component/test.tsx'",
-      errors: [{messageId: "errorMessage"}],
+      errors: [{messageId: ERROR_MESSAGE}],
       options: [
         {
           alias: '@',
           testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
         }
-      ]
+      ],
+      output: "import { getProfileForm } from '@/entities/Profile'"
     },
     {
       filename: '/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/SomeComponent.tsx',
       code: "import { getProfileForm } from '@/entities/Profile/testing'",
-      errors: [{messageId: "errorTestingMessage"}],
+      errors: [{messageId: ERROR_TESTING_MESSAGE}],
       options: [
         {
           alias: '@',
           testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
         }
-      ]
+      ],
+      output: null
     },
   ],
 });
