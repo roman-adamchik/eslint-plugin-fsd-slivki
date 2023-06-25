@@ -2,11 +2,11 @@
 
 <!-- end auto-generated rule header -->
 
-Check relative imports inside a slice according to the FSD.
+Check relative imports inside a slice according to the FSD. With autofix.
 
 ## Rule Details
 
-This rule aims to prevent using absolute imports of modules located inside one Slice. This mean your module will be more isolated and don't have useless external relations.
+This rule aims to prevent using absolute imports of modules located inside one Slice. This mean your module will be more isolated and don't have useless external relations. Autofix available.
 
 Examples of **incorrect** code for this rule:
 

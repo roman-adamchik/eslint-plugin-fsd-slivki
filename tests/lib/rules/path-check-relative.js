@@ -24,20 +24,25 @@ const ruleTester = new RuleTester({
 ruleTester.run("path-check-relative", rule, {
   valid: [
     {
-      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article",
+      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/ArticleComponent/Article.tsx",
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
       errors: [],
     },
     {
-      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article",
+      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Article/ArticleComponent/Article.tsx",
       code: "import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';",
       errors: [],
+      options: [
+        {
+          alias: '@'
+        }
+      ]
     }
   ],
 
   invalid: [
     {
-      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Profile",
+      filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Profile/ui/Profile.tsx",
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
       errors: [{ messageId: "errorMessage" }],
     },
