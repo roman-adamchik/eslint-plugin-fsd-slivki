@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-fsd-slivki",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "ESLint plugin for projects based on FSD architecture principles",
   "keywords": [
     "eslint",

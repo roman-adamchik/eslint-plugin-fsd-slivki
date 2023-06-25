@@ -45,11 +45,13 @@ ruleTester.run("path-check-relative", rule, {
       filename: "/Users/romanadamchik/Documents/Projects/project_007/src/entities/Profile/ui/Profile.tsx",
       code: "import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';",
       errors: [{ messageId: "errorMessage" }],
+      output: "import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';"
     },
     {
       filename: "/Users/romanadamchik/Documents/Projects/project_007/src/features/ArticleCommentList/ui/ArticleCommentList/ArticleCommentList.tsx",
       code: "import { articleDetailsCommentsReducer, getArticleComments } from '@/features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';",
       errors: [{ messageId: "errorMessage" }],
+      output: "import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';",
       options: [
         {
           alias: '@'
